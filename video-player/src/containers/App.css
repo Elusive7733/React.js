@@ -1,0 +1,13 @@
+body {
+  background-color: black;
+}
+
+.PlayerWindow {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
+  height: 500px;
+  width: 900px;
+  border: palegreen 1px solid;
+}
