@@ -9,7 +9,7 @@ function App() {
       <div className="PlayerWindow">
         <strong>
           <ReactPlayer
-            url="https://www.youtube.com/watch?v=V3OPDTwH9os"
+            url="./videos/pedomon.mp4"
             controls={true}
             width="900px"
             height="500px"
