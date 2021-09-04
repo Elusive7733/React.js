@@ -24,10 +24,35 @@ function App() {
     },
   ]);
 
+  const deleteTaskHandler = (id) => {
+    const filtered_tasks = tasks.filter((task) => task.id !== id);
+    setTask(filtered_tasks);
+  };
+
+  const toggleRemainderHandler = (id) => {
+    const updated_task = tasks.map((task) =>
+      task.id === id ? { ...task, reminder: !task.reminder } : task
+    );
+    setTask(updated_task);
+  };
+
+  let tasks_displayed = null;
+  if (tasks.length > 0) {
+    tasks_displayed = (
+      <Tasks
+        tasks={tasks}
+        clicked_cross={deleteTaskHandler}
+        clicked_task={toggleRemainderHandler}
+      />
+    );
+  } else {
+    tasks_displayed = <h3>No Tasks to Display</h3>;
+  }
+
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} />
+      {tasks_displayed}
     </div>
   );
 }
