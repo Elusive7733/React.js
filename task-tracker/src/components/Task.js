@@ -10,7 +10,7 @@ const Task = ({ task, clicked_cross, clicked_task }) => {
       <h3>
         {task.text}{" "}
         <GiCrossMark
-          style={{ color: "red", cursor: "pointer" }}
+          style={{ color: "maroon", cursor: "pointer" }}
           onClick={() => clicked_cross(task.id)}
         />
       </h3>

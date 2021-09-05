@@ -49,6 +49,10 @@ body {
   transform: scale(0.98);
 }
 
+.btn:hover {
+  background-color: grey;
+}
+
 .btn-block {
   display: block;
   width: 100%;
@@ -61,8 +65,16 @@ body {
   cursor: pointer;
 }
 
+.task:hover {
+  background-color: Azure;
+  transition: transform 0.5s;
+  box-shadow: 0px 0px 5px rgb(190, 255, 255),
+    inset 0px 0px 5px rgb(190, 255, 255);
+  transform: scale(1.08);
+}
+
 .task.reminder {
-  border-left: 5px solid green;
+  border-left: 5px solid steelblue;
 }
 
 .task h3 {

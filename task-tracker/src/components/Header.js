@@ -7,9 +7,11 @@ export const Header = ({ title, toggle_form, show_form }) => {
 
   let toggle_form_btn = null;
   if (show_form) {
-    toggle_form_btn = <Button text="Close" color="red" click={toggle_form} />;
+    toggle_form_btn = (
+      <Button text="Close" color="maroon" click={toggle_form} />
+    );
   } else {
-    toggle_form_btn = <Button text="Add" color="green" click={toggle_form} />;
+    toggle_form_btn = <Button text="Add" color="blue" click={toggle_form} />;
   }
 
   return (
