@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Header } from "../components/Header";
 import Tasks from "../components/Tasks";
+import AddTask from "../components/AddTask";
 
 function App() {
+  const [show_form, setShowForm] = useState(false);
   const [tasks, setTask] = useState([
     {
       id: 1,
@@ -36,6 +38,17 @@ function App() {
     setTask(updated_task);
   };
 
+  const addTaskHandler = (task) => {
+    //finding the maximum ID
+    let id = tasks.reduce(
+      (max, single_task) => (single_task.id > max ? single_task.id : max),
+      tasks[0].id
+    );
+    id += 1;
+    const newt_task = { id, ...task };
+    setTask([...tasks, newt_task]);
+  };
+
   let tasks_displayed = null;
   if (tasks.length > 0) {
     tasks_displayed = (
@@ -49,9 +62,18 @@ function App() {
     tasks_displayed = <h3>No Tasks to Display</h3>;
   }
 
+  let form = null;
+  if (show_form) {
+    form = <AddTask task_added={addTaskHandler} />;
+  }
+
   return (
     <div className="container">
-      <Header />
+      <Header
+        toggle_form={() => setShowForm(!show_form)}
+        show_form={show_form}
+      />
+      {form}
       {tasks_displayed}
     </div>
   );
