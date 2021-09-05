@@ -1,7 +1,9 @@
 import Task from "./Task";
+import Aux from "../hoc/Auxiliary";
+
 const Tasks = (props) => {
   return (
-    <>
+    <Aux>
       {props.tasks.map((task) => (
         <Task
           key={task.id}
@@ -10,7 +12,7 @@ const Tasks = (props) => {
           clicked_task={() => props.clicked_task(task.id)}
         />
       ))}
-    </>
+    </Aux>
   );
 };
 
