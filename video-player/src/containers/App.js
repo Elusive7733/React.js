@@ -1,7 +1,6 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import "./App.css";
-import UI from "../Components/UI/UI";
 
 function App() {
   return (
@@ -9,13 +8,12 @@ function App() {
       <div className="PlayerWindow">
         <strong>
           <ReactPlayer
-            url="./videos/pedomon.mp4"
+            url="./videos/Demon.Slayer.Kimetsu.no.Yaiba.The.Movie.Mugen--Infinity.Train--Ressha-Hen.2020.1080p.Dual.Audio.PSN.WEBRip.x264-Rapta.mkv"
             controls={true}
             width="900px"
             height="500px"
           />
         </strong>
-        <UI />
       </div>
     </div>
   );
