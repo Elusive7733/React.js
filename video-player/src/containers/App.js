@@ -1,7 +1,7 @@
 import React from "react";
 import ReactPlayer from "react-player";
-
 import "./App.css";
+import UI from "../Components/UI/UI";
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
             height="500px"
           />
         </strong>
+        <UI />
       </div>
     </div>
   );
