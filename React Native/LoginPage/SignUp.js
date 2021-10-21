@@ -16,9 +16,27 @@ export default function SignUp() {
 
   let incorrect_passwords = false;
 
+  const redBorder = () => {
+    if (incorrect_passwords) {
+      return {
+        paddingVertical: 10,
+        paddingLeft: 20,
+        borderRadius: 30,
+        borderWidth: 1,
+        borderColor: "red",
+      };
+    } else {
+      return {
+        paddingVertical: 10,
+        paddingLeft: 20,
+      };
+    }
+  };
+
   const onSignUpHandler = () => {
-    console.log("sign-up clicked");
+    // console.log("sign-up clicked");
     incorrect_passwords = !incorrect_passwords;
+    console.log(incorrect_passwords);
     if (Password !== ConfirmPassword) {
       incorrect_passwords = true;
     } else {
@@ -48,9 +66,7 @@ export default function SignUp() {
       <Text style={styles.LabelText}>Password</Text>
       <View style={styles.inputField}>
         <TextInput
-          style={
-            incorrect_passwords ? styles.incorrectPasswords : styles.TextInput
-          }
+          style={styles.TextInput}
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         />
@@ -76,7 +92,7 @@ export default function SignUp() {
       </TouchableOpacity>
 
       <Text style={styles.separator}>
-        -------------------or-------------------
+        ------------------ or ------------------
       </Text>
 
       <TouchableOpacity style={styles.loginBtn}>
@@ -99,6 +115,8 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: "80%",
     marginBottom: 15,
+    borderWidth: 1,
+    borderColor: "grey",
     // alignItems: "center",
   },
 
