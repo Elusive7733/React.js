@@ -42,7 +42,7 @@ export default function Login(props) {
       </TouchableOpacity>
 
       <Text style={styles.separator}>
-        -------------------or-------------------
+        ------------------ or ------------------
       </Text>
 
       <TouchableOpacity style={styles.signupBtn}>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#00FF36",
+    backgroundColor: "#00FF87",
   },
 
   signupBtn: {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#00C5FF",
+    backgroundColor: "#00FFAE",
   },
 
   separator: {

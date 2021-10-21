@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -13,6 +13,18 @@ export default function SignUp() {
   const [PhoneNumber, setPhoneNumber] = useState("");
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
+
+  let incorrect_passwords = false;
+
+  const onSignUpHandler = () => {
+    console.log("sign-up clicked");
+    incorrect_passwords = !incorrect_passwords;
+    if (Password !== ConfirmPassword) {
+      incorrect_passwords = true;
+    } else {
+      // Other logic
+    }
+  };
 
   return (
     <>
@@ -36,9 +48,11 @@ export default function SignUp() {
       <Text style={styles.LabelText}>Password</Text>
       <View style={styles.inputField}>
         <TextInput
-          style={styles.TextInput}
+          style={
+            incorrect_passwords ? styles.incorrectPasswords : styles.TextInput
+          }
           secureTextEntry={true}
-          onChangeText={(ConfirmPassword) => setPassword(ConfirmPassword)}
+          onChangeText={(password) => setPassword(password)}
         />
       </View>
 
@@ -47,7 +61,9 @@ export default function SignUp() {
         <TextInput
           style={styles.TextInput}
           secureTextEntry={true}
-          onChangeText={(password) => setConfirmPassword(password)}
+          onChangeText={(ConfirmPassword) =>
+            setConfirmPassword(ConfirmPassword)
+          }
         />
       </View>
 
@@ -55,7 +71,7 @@ export default function SignUp() {
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.signupBtn}>
+      <TouchableOpacity style={styles.signupBtn} onPress={onSignUpHandler}>
         <Text style={styles.btnText}>Sign-Up</Text>
       </TouchableOpacity>
 
@@ -83,12 +99,12 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: "80%",
     marginBottom: 15,
-    paddingLeft: 20,
     // alignItems: "center",
   },
 
   TextInput: {
     paddingVertical: 10,
+    paddingLeft: 20,
   },
 
   forgot_button: {
@@ -106,7 +122,7 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#00C5FF",
+    backgroundColor: "#00FFAE",
   },
 
   signupBtn: {
@@ -115,11 +131,19 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#00FF36",
+    backgroundColor: "#00FF87",
   },
 
   separator: {
     color: "#737373",
     margin: 5,
+  },
+
+  incorrectPasswords: {
+    paddingVertical: 10,
+    paddingLeft: 20,
+    borderRadius: 30,
+    borderWidth: 1,
+    borderColor: "red",
   },
 });

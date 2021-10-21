@@ -11,11 +11,6 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 
 export default function App() {
-  let carInfo = {
-    key: 1,
-    name: "suzuki",
-    age: 12,
-  };
   return (
     <View style={styles.container}>
       {/* <Login /> */}
