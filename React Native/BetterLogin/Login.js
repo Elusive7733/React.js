@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
   },
   LoginButtonStyle: {
     flex: 1,
+    // height: 50,
     backgroundColor: "#0078FF",
     justifyContent: "flex-end",
   },
