@@ -1,0 +1,7 @@
+{
+  "name": "Login and Aouth",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
