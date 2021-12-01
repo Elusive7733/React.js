@@ -1,6 +1,6 @@
 {
 	"appId": "io.ionic.starter",
-	"appName": "Login and Aouth",
+	"appName": "LoginOAuth",
 	"webDir": "build",
 	"bundledWebRuntime": false
 }

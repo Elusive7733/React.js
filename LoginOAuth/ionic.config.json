@@ -1,5 +1,5 @@
 {
-  "name": "Login and Aouth",
+  "name": "LoginOAuth",
   "integrations": {
     "capacitor": {}
   },
