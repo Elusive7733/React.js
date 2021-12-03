@@ -1,6 +1,17 @@
-import { IonApp, IonHeader, IonRouterOutlet, IonTitle } from "@ionic/react";
+import {
+  IonApp,
+  IonContent,
+  IonHeader,
+  IonLabel,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  IonTitle,
+} from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { useState } from "react";
+import { Route, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 
 /* Core CSS required for Ionic components to work properly */
@@ -21,18 +32,40 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+const App: React.FC = () => {
+  const [isAuthenticated, setAuthentication] = useState(false);
 
-const App: React.FC = () => (
-  // const [isAuthenticated, setAuthentication] = useState();
-
-  <IonApp>
-    <IonReactRouter>
-      <IonHeader>
-        <IonTitle>Fitness App</IonTitle>
-      </IonHeader>
-      <IonRouterOutlet></IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonHeader>
+          <IonTitle>Fine Fitness</IonTitle>
+        </IonHeader>
+        <IonContent>
+          {!isAuthenticated ? (
+            <IonTabs>
+              <IonRouterOutlet>
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
+              </IonRouterOutlet>
+              <IonTabBar slot="bottom">
+                <IonTabButton tab="login" href="/login">
+                  <IonLabel>Login</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="register" href="/register">
+                  <IonLabel>Register</IonLabel>
+                </IonTabButton>
+              </IonTabBar>
+            </IonTabs>
+          ) : (
+            <Home />
+          )}
+        </IonContent>
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;

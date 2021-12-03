@@ -1,12 +1,8 @@
+import { IonPage } from "@ionic/react";
 import React from "react";
 
 const Login = () => {
-  console.log("in login");
-  return (
-    <div>
-      <h2>login</h2>
-    </div>
-  );
+  return <IonPage>Login</IonPage>;
 };
 
 export default Login;

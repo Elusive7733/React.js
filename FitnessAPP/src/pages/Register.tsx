@@ -1,11 +1,8 @@
+import { IonPage } from "@ionic/react";
 import React from "react";
 
 const Register = () => {
-  return (
-    <div>
-      <h2>register</h2>
-    </div>
-  );
+  return <IonPage>Register</IonPage>;
 };
 
 export default Register;

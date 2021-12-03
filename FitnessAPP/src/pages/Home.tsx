@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   //   setPath(path);
   // };
 
-  return <IonPage></IonPage>;
+  return <IonPage>Home</IonPage>;
 };
 
 export default Home;
