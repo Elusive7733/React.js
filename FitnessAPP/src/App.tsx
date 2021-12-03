@@ -37,6 +37,13 @@ import Register from "./pages/Register";
 const App: React.FC = () => {
   const [isAuthenticated, setAuthentication] = useState(false);
 
+  const loginHandler = (isAuth: boolean) => {
+    setAuthentication(isAuth);
+  };
+  const registerHandler = (isAuth: boolean) => {
+    setAuthentication(isAuth);
+  };
+
   return (
     <IonApp>
       <IonReactRouter>
@@ -44,12 +51,29 @@ const App: React.FC = () => {
           <IonTitle>Fine Fitness</IonTitle>
         </IonHeader>
         <IonContent>
-          {!isAuthenticated ? (
-            <IonTabs>
-              <IonRouterOutlet>
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/register" component={Register} />
-              </IonRouterOutlet>
+          <IonTabs>
+            <IonRouterOutlet>
+              <Route exact path="/">
+                {!isAuthenticated ? <Redirect to="/login" /> : <Home />}
+              </Route>
+
+              <Route exact path="/login">
+                {!isAuthenticated ? (
+                  <Login setAuth={loginHandler} />
+                ) : (
+                  <Redirect to="/" />
+                )}
+              </Route>
+
+              <Route exact path="/register">
+                {!isAuthenticated ? (
+                  <Register setAuth={registerHandler} />
+                ) : (
+                  <Redirect to="/" />
+                )}
+              </Route>
+            </IonRouterOutlet>
+            {!isAuthenticated ? (
               <IonTabBar slot="bottom">
                 <IonTabButton tab="login" href="/login">
                   <IonLabel>Login</IonLabel>
@@ -58,10 +82,10 @@ const App: React.FC = () => {
                   <IonLabel>Register</IonLabel>
                 </IonTabButton>
               </IonTabBar>
-            </IonTabs>
-          ) : (
-            <Home />
-          )}
+            ) : (
+              <IonTabBar />
+            )}
+          </IonTabs>
         </IonContent>
       </IonReactRouter>
     </IonApp>
