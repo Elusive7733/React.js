@@ -1,65 +1,48 @@
-import {
-  IonButton,
-  IonCol,
-  IonContent,
-  IonGrid,
-  IonHeader,
-  IonPage,
-  IonRouterOutlet,
-  IonRow,
-  IonTitle,
-  IonToolbar,
-} from "@ionic/react";
-import "./Home.css";
-import { useState } from "react";
-import Login from "./Login";
-import Register from "./Register";
-import { Route } from "workbox-routing";
-import { Redirect } from "react-router";
+import { IonPage } from "@ionic/react";
 
 const Home: React.FC = () => {
-  const [selectedPath, setPath] = useState<"/login" | "/register">();
+  // const [selectedPath, setPath] = useState<"/login" | "/register">();
 
-  const PathSelectHandler = (path: "/login" | "/register") => {
-    console.log(path);
-    setPath(path);
-  };
+  // const PathSelectHandler = (path: "/login" | "/register") => {
+  //   console.log(path);
+  //   setPath(path);
+  // };
 
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Fine Fitness</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonGrid>
-          <IonRow>
-            <IonCol>
-              <IonButton
-                expand="block"
-                color="dark"
-                onClick={(path) => PathSelectHandler("/login")}
-              >
-                Login
-              </IonButton>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-              <IonButton
-                expand="block"
-                color="medium"
-                onClick={(path) => PathSelectHandler("/register")}
-              >
-                Register
-              </IonButton>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
-      </IonContent>
-    </IonPage>
-  );
+  return <IonPage></IonPage>;
 };
 
 export default Home;
+
+// <IonHeader>
+//   <IonToolbar>
+//     <IonTitle>Fine Fitness</IonTitle>
+//   </IonToolbar>
+// </IonHeader>
+// <IonContent fullscreen>
+//   <IonGrid>
+//     <IonRow>
+//       <IonCol>
+//         <IonButton
+//           expand="block"
+//           color="dark"
+//           onClick={(path) => PathSelectHandler("/login")}
+//           routerLink="/login"
+//         >
+//           Login
+//         </IonButton>
+//       </IonCol>
+//     </IonRow>
+//     <IonRow>
+//       <IonCol>
+//         <IonButton
+//           expand="block"
+//           color="medium"
+//           onClick={(path) => PathSelectHandler("/register")}
+//           routerLink="/register"
+//         >
+//           Register
+//         </IonButton>
+//       </IonCol>
+//     </IonRow>
+//   </IonGrid>
+// </IonContent>
