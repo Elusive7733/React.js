@@ -41,7 +41,7 @@ const Login = (props: any) => {
         className="loginButton"
         onClick={loginHandler}
       >
-        Register
+        Login
       </Button>
     </Fragment>
   );

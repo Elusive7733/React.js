@@ -1,7 +1,0 @@
-{
-  "name": "FitnessAPP",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
-}
