@@ -1,7 +1,6 @@
-// import firebase from "firebase/app";
-// import "firebase/database";
-// import { getDatabase, ref } from "firebase/database";
-import { initializeApp } from "firebase/app"; // no compat for new SDK
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAWP4MEpLjRIpphJzT92UAlJgZKUqzesRE",
@@ -15,6 +14,7 @@ const firebaseConfig = {
   measurementId: "${config.measurementId}",
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-export default firebaseApp;
+export default app;

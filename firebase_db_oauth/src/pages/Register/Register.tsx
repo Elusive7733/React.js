@@ -1,10 +1,9 @@
-import { IonButton, IonPage } from "@ionic/react";
-import React, { useState } from "react";
-import styles from "./Register.module.css";
+import React, { Fragment, useState } from "react";
+
+import { Button, TextField } from "@mui/material";
 
 import { getDatabase, ref, set, push } from "firebase/database";
-import app from "../../firebase";
-import { TextField } from "@mui/material";
+import firebaseApp from "../../firebase";
 
 const Register = (props: any) => {
   const [name, setName] = useState<string>();
@@ -16,13 +15,8 @@ const Register = (props: any) => {
   const [errorMsg, setErrorMsg] = useState<string>();
 
   const registerHandler = () => {
-    // console.log(name);
-    // console.log(email);
-    // console.log(phoneNumber);
-    // console.log(password);
-
     if (confirmPassword === password) {
-      const db = getDatabase(app);
+      const db = getDatabase(firebaseApp);
       const userListRef = ref(db, "Users");
       const newUserRef = push(userListRef);
 
@@ -41,7 +35,7 @@ const Register = (props: any) => {
   };
 
   return (
-    <IonPage>
+    <Fragment>
       <TextField
         fullWidth
         variant="outlined"
@@ -93,15 +87,14 @@ const Register = (props: any) => {
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
-      <IonButton
-        className={styles["IonButton"]}
-        expand="block"
-        color="dark"
+      <Button
+        variant="contained"
+        className="registerButton"
         onClick={registerHandler}
       >
         Register
-      </IonButton>
-    </IonPage>
+      </Button>
+    </Fragment>
   );
 };
 
