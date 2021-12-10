@@ -1,7 +1,11 @@
-import { IonPage } from "@ionic/react";
+import { Fragment } from "react";
 
 const Home: React.FC = () => {
-  return <IonPage>Home</IonPage>;
+  return (
+    <Fragment>
+      <h1>Hello Home</h1>
+    </Fragment>
+  );
 };
 
 export default Home;
