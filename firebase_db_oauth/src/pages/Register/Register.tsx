@@ -34,6 +34,7 @@ const Register = (props: any) => {
     }
   };
 
+  //todo: Fix styling
   return (
     <Fragment>
       <TextField
