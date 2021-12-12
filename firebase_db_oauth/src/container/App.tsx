@@ -1,27 +1,24 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 
-import Login from "../pages/Login/Login";
-import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home";
+import { Link } from "react-router-dom";
 
 //todo: set authentication
 const App: React.FC = () => {
   const [isAuthenticated, setAuthentication] = useState(false);
 
-  const loginHandler = (isAuth: boolean) => {
-    setAuthentication(isAuth);
-  };
-  const registerHandler = (isAuth: boolean) => {
-    setAuthentication(isAuth);
-  };
-
   //todo: Add Routing
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-      {/* <Register setAuth={registerHandler} /> */}
-      <Login setAuth={loginHandler} />
-    </div>
+    <Fragment>
+      {isAuthenticated ? (
+        <Home />
+      ) : (
+        <Fragment>
+          <Link to="/login">Login</Link>
+          <Link to="/register">register</Link>
+        </Fragment>
+      )}
+    </Fragment>
   );
 };
 

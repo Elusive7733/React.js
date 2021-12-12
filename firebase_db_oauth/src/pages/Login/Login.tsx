@@ -11,7 +11,7 @@ const Login = (props: any) => {
   const loginHandler = () => {
     console.log("Logged in my nigga");
 
-    props.setAuth(true);
+    // props.setAuth(true);
   };
 
   return (
