@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 import { Button, TextField } from "@mui/material";
+import "./Register.css";
 
 import { getDatabase, ref, set, push } from "firebase/database";
 import firebaseApp from "../../firebase";
@@ -34,67 +35,74 @@ const Register = (props: any) => {
     }
   };
 
-  //todo: Fix styling
   return (
     <Fragment>
-      <TextField
-        fullWidth
-        variant="outlined"
-        label="Full Name"
-        type="text"
-        color="warning"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <TextField
-        fullWidth
-        variant="outlined"
-        label="Email"
-        type="email"
-        color="warning"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+      <div className="container">
+        <h2>Enter Your Information</h2>
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Full Name"
+          type="text"
+          color="primary"
+          margin="normal"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Email"
+          type="email"
+          color="primary"
+          margin="normal"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <TextField
-        fullWidth
-        variant="outlined"
-        label="Phone Number"
-        type="tel"
-        color="warning"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-      />
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Phone Number"
+          type="tel"
+          color="primary"
+          margin="normal"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+        />
 
-      <TextField
-        fullWidth
-        variant="outlined"
-        label="Password"
-        type="password"
-        color="warning"
-        error={error}
-        helperText={errorMsg}
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <TextField
-        fullWidth
-        variant="outlined"
-        label="Confirm Password"
-        type="password"
-        color="warning"
-        error={error}
-        helperText={errorMsg}
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-      />
-      <Button
-        variant="contained"
-        className="registerButton"
-        onClick={registerHandler}
-      >
-        Register
-      </Button>
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Password"
+          type="password"
+          color="primary"
+          margin="normal"
+          error={error}
+          helperText={errorMsg}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Confirm Password"
+          type="password"
+          color="primary"
+          margin="normal"
+          error={error}
+          helperText={errorMsg}
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+        <Button
+          variant="contained"
+          className="registerButton"
+          onClick={registerHandler}
+        >
+          Register
+        </Button>
+      </div>
     </Fragment>
   );
 };

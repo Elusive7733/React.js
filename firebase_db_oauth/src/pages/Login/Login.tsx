@@ -14,17 +14,17 @@ const Login = (props: any) => {
     props.setAuth(true);
   };
 
-  //todo: Fix Styling
   return (
     <Fragment>
       <div className="container">
+        <h2>Login Your Account</h2>
         <TextField
           fullWidth
           variant="outlined"
           label="Phone Number"
           type="tel"
+          color="primary"
           margin="normal"
-          color="success"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
@@ -34,9 +34,9 @@ const Login = (props: any) => {
           variant="outlined"
           label="Password"
           type="password"
-          color="success"
-          error={error}
+          color="primary"
           margin="normal"
+          error={error}
           helperText={errorMsg}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -46,7 +46,7 @@ const Login = (props: any) => {
           className="loginButton"
           onClick={loginHandler}
           size="medium"
-          color="success"
+          color="primary"
         >
           Login
         </Button>
