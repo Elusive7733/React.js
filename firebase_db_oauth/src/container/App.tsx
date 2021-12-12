@@ -4,6 +4,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home";
 
+//todo: set authentication
 const App: React.FC = () => {
   const [isAuthenticated, setAuthentication] = useState(false);
 
@@ -14,6 +15,7 @@ const App: React.FC = () => {
     setAuthentication(isAuth);
   };
 
+  //todo: Add Routing
   return (
     <div className="App">
       <h1>Hello World</h1>
