@@ -1,5 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import React, { Fragment, useState } from "react";
+import "./Login.css";
 
 const Login = (props: any) => {
   const [phoneNumber, setPhoneNumber] = useState<string>();
@@ -16,34 +17,40 @@ const Login = (props: any) => {
   //todo: Fix Styling
   return (
     <Fragment>
-      <TextField
-        fullWidth
-        variant="outlined"
-        label="Phone Number"
-        type="tel"
-        color="warning"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-      />
+      <div className="container">
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Phone Number"
+          type="tel"
+          margin="normal"
+          color="success"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+        />
 
-      <TextField
-        fullWidth
-        variant="outlined"
-        label="Password"
-        type="password"
-        color="warning"
-        error={error}
-        helperText={errorMsg}
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <Button
-        variant="contained"
-        className="loginButton"
-        onClick={loginHandler}
-      >
-        Login
-      </Button>
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Password"
+          type="password"
+          color="success"
+          error={error}
+          margin="normal"
+          helperText={errorMsg}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button
+          variant="contained"
+          className="loginButton"
+          onClick={loginHandler}
+          size="medium"
+          color="success"
+        >
+          Login
+        </Button>
+      </div>
     </Fragment>
   );
 };
