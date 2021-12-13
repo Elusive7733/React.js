@@ -10,6 +10,7 @@ const App: React.FC = () => {
   const [isAuthenticated, setAuthentication] = useState(false);
 
   //todo: Add Routing
+  //todo: Clean code
   return (
     <Fragment>
       {isAuthenticated ? (
