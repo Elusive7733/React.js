@@ -16,15 +16,37 @@ const App: React.FC = () => {
         <Home />
       ) : (
         <Fragment>
-          <Link to="/login">Login</Link>
-          <Link to="/register">register</Link>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Fragment>
+                  <Link to="/login">Login</Link>
+                  <Link to="/register">Register</Link>
+                </Fragment>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <Fragment>
+                  <Login setAuth={(auth: any) => setAuthentication(auth)} />
+                  <Link to="/register">Register</Link>
+                </Fragment>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <Fragment>
+                  <Register setAuth={(auth: any) => setAuthentication(auth)} />
+                  <Link to="/login">Login</Link>
+                </Fragment>
+              }
+            />
+          </Routes>
         </Fragment>
       )}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
     </Fragment>
   );
 };
